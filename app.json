@@ -1,5 +1,6 @@
 {
   "expo": {
+    "plugins": [["expo-router"]],
     "name": "CPRG-303-Lab-2",
     "slug": "CPRG-303-Lab-2",
     "version": "1.0.0",
