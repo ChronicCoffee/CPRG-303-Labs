@@ -1,1 +1,1 @@
-export const fruitList = ["apple", "orange", "mango"];
+const fruitList = ["apple", "orange", "mango"];
