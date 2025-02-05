@@ -19,9 +19,3 @@ const Lab3 = () => {
 
 export default Lab3;
 
-const styles = StyleSheet.create({
-
-
-
-    
-});

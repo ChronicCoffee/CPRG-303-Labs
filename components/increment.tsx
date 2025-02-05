@@ -1,5 +1,5 @@
-import react from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView, Button } from 'react-native';
 
 type IncrementProps = {value: number; setValue: (value: number) => void};
 
@@ -11,9 +11,12 @@ const Increment: React.FC<IncrementProps> = ({value, setValue}) => {
 
     return (
         <View>
-            <TouchableOpacity onPress=(handleIncrement)>
-                <Text>This is Increment</Text>
-            </TouchableOpacity>
+            <View>
+            {/* <TouchableOpacity onPress={handleIncrement}>
+            <Text>This is Increment</Text> */}
+            {/* </TouchableOpacity> */}
+            <Button title="Increment" onPress={handleIncrement}/>
+            </View>
         </View>
     );
 };

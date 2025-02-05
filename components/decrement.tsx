@@ -1,5 +1,5 @@
 import react from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView, Button } from 'react-native';
 
 
 type DecrementProps = {value: number; setValue: (value: number) => void};
@@ -13,9 +13,7 @@ const Decrement: React.FC<DecrementProps> = ({value, setValue}) => {
     return (
         <View>
             <View>
-            <TouchableOpacity onPress={handleDecrement}>
-            <Text>This is Decrement</Text>
-            </TouchableOpacity>
+            <Button title="Decrement" onPress={handleDecrement}/>
             </View>
         </View>
     );
