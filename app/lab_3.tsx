@@ -8,14 +8,29 @@ const Lab3: React.FC = () => {
     return (
         <View>
         <Text>This is Lab 3</Text>
-        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Decrement button pressed')}>
-            <Text style={styles.buttonText}>Decrement</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Increment button pressed')}>
-            <Text style={styles.buttonText}>Increment</Text>
-        </TouchableOpacity>
+        <Increment />
+        <Decrement />
         </View>
     );
 };
 
 export default Lab3;
+
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: "#ff9800",
+        paddingVertical: 12,
+        paddingHorizontal: 25,
+        borderRadius: 8,
+        marginBottom: 20,
+        shadowColor: "#000",
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 3,
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    }
+});
