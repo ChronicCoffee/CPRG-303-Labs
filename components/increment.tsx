@@ -1,13 +1,13 @@
-import { useState } from "react";
+import react from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'react-native';
+
+const Increment = () => {
+    return (
+        <View>
+        <Text>This is Increment</Text>
+        </View>
+    );
+};
 
 
-export default function Increment() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-}
+export default Increment;
