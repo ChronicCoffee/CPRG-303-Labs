@@ -13,7 +13,7 @@ export default function Index() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to our App!</Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push('Lab3')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('./lab_3')}>
         <Text style={styles.buttonText}>Go to Lab 3</Text>
       </TouchableOpacity>
 
