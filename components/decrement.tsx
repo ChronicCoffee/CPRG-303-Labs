@@ -1,12 +1,22 @@
 import react from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'react-native';
 
-const Decrement = () => {
+
+type DecrementProps = {value: number; setValue: (value: number) => void};
+
+const Decrement: React.FC<DecrementProps> = ({value, setValue}) => {
+    const handleDecrement = () => {
+        setValue(value + 1);
+    };
+
+
     return (
         <View>
-        <TouchableOpacity onPress={() => console.log("Decrement")}>
-        <Text>This is Decrement</Text>
-        </TouchableOpacity>
+            <View>
+            <TouchableOpacity onPress={handleDecrement}>
+            <Text>This is Decrement</Text>
+            </TouchableOpacity>
+            </View>
         </View>
     );
 };
