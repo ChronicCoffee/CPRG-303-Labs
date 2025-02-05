@@ -11,7 +11,7 @@ const Lab3 = () => {
         <Text>This is Lab 3</Text>
         <View>
         <Increment value={value} setValue={setValue}/>
-        <Decrement value={value} setValue={setValue} />
+        <Decrement value={value} setValue={setValue}/>
         </View>
         </View>
     );

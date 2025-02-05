@@ -1,12 +1,19 @@
 import react from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'react-native';
 
-const Increment = () => {
+type IncrementProps = {value: number; setValue: (value: number) => void};
+
+const Increment: React.FC<IncrementProps> = ({value, setValue}) => {
+    const handleIncrement = () => {
+        setValue(value + 1);
+    };
+
+
     return (
         <View>
-        <TouchableOpacity onPress={() => console.log("Increment")}>
-        <Text>This is Increment</Text>
-        </TouchableOpacity>
+            <TouchableOpacity onPress=(handleIncrement)>
+                <Text>This is Increment</Text>
+            </TouchableOpacity>
         </View>
     );
 };
