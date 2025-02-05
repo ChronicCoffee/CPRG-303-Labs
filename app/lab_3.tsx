@@ -4,12 +4,15 @@ import Decrement from '../components/decrement';
 import Increment from '../components/increment';
 
 
-const Lab3: React.FC = () => {
+const Lab3 = () => {
+    const [value, setValue] = useState<number>(0);
     return (
         <View>
         <Text>This is Lab 3</Text>
-        <Increment />
-        <Decrement />
+        <View>
+        <Increment value={value} setValue={setValue}/>
+        <Decrement value={value} setValue={setValue} />
+        </View>
         </View>
     );
 };
@@ -17,20 +20,8 @@ const Lab3: React.FC = () => {
 export default Lab3;
 
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: "#ff9800",
-        paddingVertical: 12,
-        paddingHorizontal: 25,
-        borderRadius: 8,
-        marginBottom: 20,
-        shadowColor: "#000",
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 3,
-    },
-    buttonText: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    }
+
+
+
+    
 });
