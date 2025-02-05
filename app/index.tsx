@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView,} from "react-native";
 import FruitList from "../components/fruitlist"; // Import FruitList component
+import Lab3 from "./lab_3";
+import { router } from "expo-router";
 
 export default function Index() {
   const handleWelcomePress = () => {
@@ -10,6 +12,10 @@ export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to our App!</Text>
+
+      <TouchableOpacity style={styles.button} onPress={() => router.push('Lab3')}>
+        <Text style={styles.buttonText}>Go to Lab 3</Text>
+      </TouchableOpacity>
 
       {/* Styled Button */}
       <TouchableOpacity style={styles.button} onPress={handleWelcomePress}>

@@ -4,7 +4,9 @@ import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView } from 'r
 const Increment = () => {
     return (
         <View>
+        <TouchableOpacity onPress={() => console.log("Increment")}>
         <Text>This is Increment</Text>
+        </TouchableOpacity>
         </View>
     );
 };
