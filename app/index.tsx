@@ -24,11 +24,11 @@ export default function Index() {
 
       {/* Styled Button */}
       <TouchableOpacity style={styles.button} onPress={handleWelcomePress}>
-        <Text style={styles.buttonText}>Click Me</Text>
+        <Text style={styles.buttonText}>This was Lab 1 - Click Me</Text>
       </TouchableOpacity>
 
       {/* Display the fruit list */}
-      <Text style={styles.listTitle}>Choose a Fruit:</Text>
+      <Text style={styles.listTitle}>This was Lab 2 - Choose a Fruit:</Text>
       <FruitList />
     </SafeAreaView>
   );
