@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView,} from "react-native";
 import FruitList from "../components/fruitlist"; // Import FruitList component
 import Lab3 from "./lab_3";
+import Lab4 from "./lab_4";
 import { router } from "expo-router";
 
 export default function Index() {
@@ -14,6 +15,10 @@ export default function Index() {
       <Text style={styles.welcomeText}>Welcome to our App!</Text>
 
       <TouchableOpacity style={styles.button} onPress={() => router.push('./lab_3')}>
+        <Text style={styles.buttonText}>Go to Lab 3</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => router.push('./lab_4')}>
         <Text style={styles.buttonText}>Go to Lab 3</Text>
       </TouchableOpacity>
 
