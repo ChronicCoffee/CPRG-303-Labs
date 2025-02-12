@@ -35,6 +35,7 @@ const Lab4: React.FC = () => {
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -47,18 +48,24 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    padding: 20,
+    textAlign: 'left'
   },
   destinationItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
+    padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+    width: '100%',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    marginBottom: 10,
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
   },
   destinationText: {
     fontSize: 18,
+    fontFamily: 'times new roman',
   },
 });
-
 export default Lab4;
