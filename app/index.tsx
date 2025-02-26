@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Alert, SafeAreaView,} from "r
 import FruitList from "../components/fruitlist"; // Import FruitList component
 import Lab3 from "./lab_3";
 import Lab4 from "./lab_4";
+import lab5 from "./lab_5";
 import { router } from "expo-router";
 
 export default function Index() {
@@ -20,6 +21,10 @@ export default function Index() {
 
       <TouchableOpacity style={styles.button} onPress={() => router.push('./lab_4/')}>
         <Text style={styles.buttonText}>Go to Lab 4</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => router.push('./lab_5/')}>
+        <Text style={styles.buttonText}>Go to Lab 5</Text>
       </TouchableOpacity>
 
       {/* Styled Button */}
