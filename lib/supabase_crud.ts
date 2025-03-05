@@ -1,26 +1,29 @@
-import supabase from "./supabase";
+import { createClient } from '@supabase/supabase-js';
+import Constants from 'expo-constants';
 
-const TABLE_NAME = "sampledatabase";
+// Get the extra config from app.config.js
+const { supabaseUrl, supabaseKey } = Constants.expoConfig.extra;
 
-export async function getUsers(){
-    const {data, error} = await supabase.from(TABLE_NAME).select("*");
-    if(error) {
-        throw error;
-    }
-    return data;
+// Verify the URL and key exist
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error('Missing Supabase credentials in app configuration');
 }
 
-export async function insertTasks(tasks: string[]) {
-    const tasksToInsert = tasks.map(task => ({ name: task }));
-  
-    const { data, error } = await supabase
-      .from(TABLE_NAME)
-      .insert(tasksToInsert);
-  
-    if (error) {
-      console.error('Error inserting tasks:', error);
-      return null;
-    }
-  
-    return data;
+// Create Supabase client
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const TABLE_NAME = 'users';
+
+export async function getUsers() {
+  const { data, error } = await supabase
+    .from(TABLE_NAME)
+    .select('*');
+
+  if (error) {
+    throw error;
   }
+
+  return data;
+}
+
+export default supabase;
