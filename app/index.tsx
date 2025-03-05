@@ -29,8 +29,8 @@ export default function Index() {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={() => router.push('./lab_6/')}>
-        <Text style={styles.buttonText}>Go to Lab 6</Text>
-      </TouchableOpacity>
+  <Text style={styles.buttonText}>Go to Lab 6</Text>
+</TouchableOpacity>
 
       {/* Styled Button */}
       <TouchableOpacity style={styles.button} onPress={handleWelcomePress}>

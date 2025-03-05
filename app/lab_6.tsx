@@ -1,98 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, SafeAreaView } from 'react-native';
-import { getUsers } from '../lib/supabase_crud';
+import React, { useEffect, useState } from "react";
+import { View, Text, FlatList, StyleSheet, SafeAreaView } from "react-native";
+import { getUsers } from "../lib/supabase_crud";
 
-// Define a type for your user object to resolve type issues
 type User = {
-  id?: number | string;
-  [key: string]: any;
+  id: number;
+  name: string;
+  email: string;
+  created_at: string;
 };
 
-export default function Lab6Screen() {
+const Lab6 = () => {
   const [users, setUsers] = useState<User[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchUsers() {
+    const fetchUsers = async () => {
       try {
-        const fetchedUsers = await getUsers();
-        
-        // Ensure fetchedUsers is an array and has the correct type
-        setUsers(Array.isArray(fetchedUsers) ? fetchedUsers : []);
-        setIsLoading(false);
+        const data = await getUsers();
+        console.log("Users data:", data); // Log fetched data
+        setUsers(data);
       } catch (error) {
-        console.error('Error fetching users:', error);
-        setIsLoading(false);
-        setUsers([]); // Ensure users is an empty array in case of error
+        console.error("Error fetching users:", error); // Log errors
       }
-    }
+    };
 
     fetchUsers();
   }, []);
 
-  if (isLoading) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>Loading users...</Text>
-      </SafeAreaView>
-    );
-  }
-
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Users from Supabase</Text>
+      <Text style={styles.title}>Lab 6: Supabase Data Fetching</Text>
       <FlatList
         data={users}
-        keyExtractor={(item, index) => 
-          item.id 
-            ? String(item.id) 
-            : `user-${index}`
-        }
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.userItem}>
-            <Text style={styles.userText}>
-              {JSON.stringify(item, null, 2)}
+            <Text style={styles.userName}>Name: {item.name}</Text>
+            <Text style={styles.userEmail}>Email: {item.email}</Text>
+            <Text style={styles.userCreatedAt}>
+              Created At: {new Date(item.created_at).toLocaleString()}
             </Text>
           </View>
         )}
-        ListEmptyComponent={
-          <View style={styles.emptyContainer}>
-            <Text>No users found</Text>
-          </View>
-        }
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f5f5f5'
+    padding: 16,
+    backgroundColor: "#f8f8f8",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
+    color: "#2c3e50",
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: "center",
   },
   userItem: {
-    backgroundColor: 'white',
-    padding: 15,
-    marginVertical: 8,
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    backgroundColor: "#fff",
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 12,
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3
+    elevation: 3,
   },
-  userText: {
-    fontSize: 16
+  userName: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#444",
   },
-  emptyContainer: {
-    alignItems: 'center',
-    marginTop: 50
-  }
+  userEmail: {
+    fontSize: 16,
+    color: "#666",
+  },
+  userCreatedAt: {
+    fontSize: 14,
+    color: "#888",
+  },
 });
+
+export default Lab6;
