@@ -16,7 +16,4 @@ async function initializeTasks() {
   console.log('Tasks inserted successfully:', data);
 }
 
-// Optional: If you want to run this directly
-// initializeTasks();
-
 export default initializeTasks;
